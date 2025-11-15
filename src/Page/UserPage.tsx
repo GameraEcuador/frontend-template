@@ -17,7 +17,8 @@ const columns = [
 ];
 
 export const UserPage = () => {
-  const { users, startUpdateUser, startDeleteUser } = useUserStore();
+  const { users, startUpdateUser, startDeleteUser, startCreateUser } =
+    useUserStore();
 
   return (
     <div className="p-4">
@@ -25,6 +26,7 @@ export const UserPage = () => {
       <CustomDataTable
         columns={columns}
         data={users}
+        onCreate={startCreateUser}
         onDelete={startDeleteUser}
         onEdit={startUpdateUser}
       />
